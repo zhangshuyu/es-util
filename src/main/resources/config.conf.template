@@ -1,0 +1,11 @@
+es.cluster {
+  name = "cluster name"
+  nodes = ["127.0.0.1:9300"]
+}
+es.bulk.size = 1000
+es.http.port = 9200
+es.scroll.keepalive=1m
+
+es.index = ["index"]
+es.type = ["type"]
+app.root = "./data"
