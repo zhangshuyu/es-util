@@ -1,0 +1,11 @@
+/target/
+/.settings/
+/logs/
+*.iml
+.classpath
+.project
+.settings/
+.idea
+config.conf
+log4j2.xml
+/temp/
