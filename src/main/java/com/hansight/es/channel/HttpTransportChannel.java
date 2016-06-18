@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,19 +35,29 @@ public class HttpTransportChannel implements TransportChannel {
     private String address;
     private String keepAlive;
     private int size;
+    private EsConfig config;
 
     public HttpTransportChannel(EsConfig config) {
-        this.address = config.getNodes().get(0);
-        this.keepAlive = config.getScrollAlive();
-        this.size = config.getSize();
+        this.config = config;
+        this.address = this.config.getNodes().get(0);
+        this.keepAlive = this.config.getScrollAlive();
+        this.size = this.config.getSize();
     }
 
     @Override
-    public void createIndex(String index, Map<String, Object> mappings) {
+    public void createIndex(String index, Map<String, Object> settings, Map<String, Object> mappings) {
         try {
             HttpPut put = new HttpPut(getRequestUrl(new String[]{index}, null));
+            if (settings != null) ;
+            try {
+                XContentBuilder builder = XContentFactory.jsonBuilder();
+                builder.startObject().field("settings", settings).endObject();
+                put.setEntity(new StringEntity(builder.string(), ContentType.APPLICATION_JSON));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             execute(put);
-            mappings.forEach((type, source) -> {
+            if (mappings != null) mappings.forEach((type, source) -> {
                 putMapping(index, type, (Map<String, Object>) source);
             });
         } catch (Exception e) {
@@ -86,7 +97,8 @@ public class HttpTransportChannel implements TransportChannel {
     }
 
     @Override
-    public Tuple<String, List<String>> getMapping(String[] indices, String[] types) {
+    public Map<String, Object> getMapping(String[] indices, String[] types) {
+        Map<String, Object> mappingObj;
         try {
             String result = null;
             try {
@@ -94,16 +106,12 @@ public class HttpTransportChannel implements TransportChannel {
             } catch (Exception e) {
                 logger.error("get mapping error", e);
             }
-            final List<String> indicesReal = new ArrayList<>();
-            if (result != null) {
-                Map<String, Object> mappingObj = (Map<String, Object>) FasterXmlUtils.fromJson(result, Map.class);
-                mappingObj.forEach((index, value) -> indicesReal.add(index));
-            }
-            return new Tuple<>(result, indicesReal);
+            mappingObj = (Map<String, Object>) FasterXmlUtils.fromJson(result, Map.class);
         } catch (Exception e) {
             logger.error("get mapping error", e);
-            return new Tuple<>("", null);
+            mappingObj = new HashMap<>();
         }
+        return mappingObj;
     }
 
     @Override
@@ -178,6 +186,52 @@ public class HttpTransportChannel implements TransportChannel {
             tuple = new Tuple<String, List<ESDoc>>("", docs);
         }
         return tuple;
+    }
+
+    @Override
+    public boolean closeIndex(String index) {
+        HttpPost post = new HttpPost(getRequestUrl(new String[]{index}, null) + "_close");
+        try {
+            execute(post);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean openIndex(String index) {
+        HttpPost post = new HttpPost(getRequestUrl(new String[]{index}, null) + "_open");
+        try {
+            execute(post);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public Map<String, Object> getSettings(String... indices) {
+        StringBuffer url = new StringBuffer(getRequestUrl(indices, null) + "_settings/");
+        for (int i = 0; i < this.config.getSettingsIncludedFields().size(); i++) {
+            url.append(this.config.getSettingsIncludedFields().get(i));
+            if (i < (this.config.getSettingsIncludedFields().size() - 1)) url.append(",");
+        }
+        url.append("/");
+        HttpGet get = new HttpGet(url.toString());
+        Map<String, Object> settings = new HashMap<>();
+        try {
+            String settingStr = execute(get);
+            Map<String, Object> map = FasterXmlUtils.fromJson(settingStr, Map.class);
+            map.forEach((index, settingObj) ->
+                    settings.put(index, settingObj)
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return settings;
     }
 
     private String getRequestUrl(String[] indices, String[] types) {

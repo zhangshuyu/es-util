@@ -32,8 +32,10 @@ public class App {
             try {
                 logger.info("use provider: {}, use channel: {}", config.getProviderName(), config.getChannel());
                 provider = ClassUtil.newInstance(config.getProviderName(), new Tuple<Class<?>, Object>(EsConfig.class, config));
-                provider.mapping();
-                provider.option();
+                int cmdC = config.getCmd().indexOf("c", 0);
+                int cmdO = config.getCmd().indexOf("o", 0);
+                if (cmdC != -1) provider.config();
+                if (cmdO != -1) provider.option();
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -88,6 +90,10 @@ public class App {
         Option dataFileNameOption = new Option("df", "dataFile", true, "es data file name");
         dataFileNameOption.setRequired(false);
         options.addOption(dataFileNameOption);
+
+        Option cmdOption = new Option("cmd", "cmd", true, "app cmd. c:config, o:option");
+        cmdOption.setRequired(false);
+        options.addOption(cmdOption);
 
         HelpFormatter hf = new HelpFormatter();
         hf.setWidth(110);
@@ -165,6 +171,10 @@ public class App {
                         config.setChannel(opt.getValue());
                         break;
                     }
+                    case "cmd": {
+                        config.setCmd(opt.getValue());
+                        break;
+                    }
                 }
             }
             return true;
@@ -194,7 +204,8 @@ public class App {
                 config.setMappingFileName(ConfigUtils.getStringValue("app.mapping.filename", DefaultConfig.MAPPING_NAME));
             if (StringUtils.isEmpty(config.getDataFileName()))
                 config.setDataFileName(ConfigUtils.getStringValue("app.data.filename", DefaultConfig.DATA_NAME));
-
+            if (StringUtils.isEmpty(config.getCmd()))
+                config.setCmd("co");
             if (StringUtils.isEmpty(config.getProviderName()))
                 config.setProviderName(ConfigUtils.getStringValue(ConfigUtils.PROVIDER, DefaultConfig.PROVIDER));
             else {
@@ -223,6 +234,9 @@ public class App {
                         return false;
                 }
             }
+            if (config.getSettingsIncludedFields() == null || config.getSettingsIncludedFields().size() == 0)
+                config.setSettingsIncludedFields(ConfigUtils.getStringListValue("es.settings.included.fields", DefaultConfig.ES_SETTINGS_INCLUDED_FIELDS));
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();

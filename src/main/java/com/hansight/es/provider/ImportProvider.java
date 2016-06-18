@@ -27,7 +27,7 @@ public class ImportProvider implements Provider {
 
     private TransportChannel channel;
 
-    private List<File> mappingFiles;
+    private List<File> indexConfigFiles;
 
     private List<File> dataFiles;
 
@@ -39,7 +39,7 @@ public class ImportProvider implements Provider {
     public ImportProvider(EsConfig config) {
         logger.info("init start");
         this.config = config;
-        this.mappingFiles = new ArrayList<>();
+        this.indexConfigFiles = new ArrayList<>();
         this.dataFiles = new ArrayList<>();
         try {
             init();
@@ -57,7 +57,7 @@ public class ImportProvider implements Provider {
         else {
             for (File log : root.listFiles()) {
                 if (log.isFile() && log.getName().endsWith(DefaultConfig.FILE_ENDING)) {
-                    if (log.getName().startsWith(DefaultConfig.MAPPING_NAME)) mappingFiles.add(log);
+                    if (log.getName().startsWith(DefaultConfig.MAPPING_NAME)) indexConfigFiles.add(log);
                     if (log.getName().startsWith(DefaultConfig.DATA_NAME)) dataFiles.add(log);
                 }
             }
@@ -65,29 +65,31 @@ public class ImportProvider implements Provider {
     }
 
     @Override
-    public boolean mapping() {
-        logger.info("mapping start");
+    public boolean config() {
+        logger.info("config start");
 
-        mappingFiles.forEach(mappingFile -> {
+        indexConfigFiles.forEach(mappingFile -> {
             FileReader mfr = null;
             BufferedReader mbr = null;
             try {
                 mfr = new FileReader(mappingFile);
                 mbr = new BufferedReader(mfr);
-                StringBuffer mappingStr = new StringBuffer();
+                StringBuffer indexConfigStr = new StringBuffer();
                 String line;
                 while ((line = mbr.readLine()) != null) {
-                    mappingStr.append(line);
+                    indexConfigStr.append(line);
                 }
-                Map<String, Map<String, Object>> mappingObj = (Map<String, Map<String, Object>>) FasterXmlUtils.fromJson(mappingStr.toString(), Map.class);
-                mappingObj.forEach((index, typesWrapper) -> {
-                    Map<String, Object> types = (Map<String, Object>) typesWrapper.get("mappings");
+                Map<String, Map<String, Object>> indexConfigObj =
+                        (Map<String, Map<String, Object>>) FasterXmlUtils.fromJson(indexConfigStr.toString(), Map.class);
+                indexConfigObj.forEach((index, indexConfigWrapper) -> {
+                    Map<String, Object> mappings = (Map<String, Object>) indexConfigWrapper.get("mappings");
+                    Map<String, Object> settings = (Map<String, Object>) indexConfigWrapper.get("settings");
                     if (channel.indexExists(index)) {
-                        types.forEach((type, source) -> channel.putMapping(index, type, (Map<String, Object>) source));
+                        mappings.forEach((type, source) -> channel.putMapping(index, type, (Map<String, Object>) source));
                     } else {
-                        channel.createIndex(index, types);
+                        channel.createIndex(index, settings, mappings);
                     }
-                    logger.info("mapping index {}", index);
+                    logger.info("config index {}", index);
                 });
             } catch (Exception e) {
                 e.printStackTrace();
@@ -100,7 +102,7 @@ public class ImportProvider implements Provider {
                 }
             }
         });
-        logger.info("mapping end");
+        logger.info("config end");
         return true;
     }
 

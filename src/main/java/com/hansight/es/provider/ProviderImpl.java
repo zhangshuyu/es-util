@@ -41,7 +41,7 @@ public class ProviderImpl implements Provider {
     }
 
     @Override
-    public boolean mapping() {
+    public boolean config() {
         return false;
     }
 

@@ -15,8 +15,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * ExportProvider
@@ -30,12 +29,12 @@ public class ExportProvider implements Provider {
     private EsConfig config;
     private long count = 0;
     private long total = 0;
-    private List<String> indices;
+    private Set<String> indices;
     private TransportChannel channel;
 
     public ExportProvider(EsConfig config) {
         this.config = config;
-        this.indices = new ArrayList<>();
+        this.indices = new HashSet<>();
         init();
     }
 
@@ -54,36 +53,48 @@ public class ExportProvider implements Provider {
     }
 
     @Override
-    public boolean mapping() {
-        logger.info("mapping start");
+    public boolean config() {
+        logger.info("config start");
         String[] _indices = null;
         String[] _types = null;
         if (config.getIndices() != null && config.getIndices().size() > 0)
             _indices = config.getIndices().toArray(new String[]{});
         if (config.getTypes() != null && config.getTypes().size() > 0)
             _types = config.getTypes().toArray(new String[]{});
-        Tuple<String, List<String>> tuple = channel.getMapping(_indices, _types);
-        if (StringUtils.isNotEmpty(tuple.v1()) && tuple.v2() != null) {
-            indices.addAll(tuple.v2());
-            FileWriter mfw = null;
-            BufferedWriter mbw = null;
+
+        Map<String, Object> configs = new HashMap<>();
+
+        Map<String, Object> settings = channel.getSettings(_indices);
+        Map<String, Object> mappings = channel.getMapping(_indices, _types);
+        indices.addAll(settings.keySet());
+        indices.addAll(mappings.keySet());
+
+        indices.forEach(index -> {
+            Map<String, Object> params = new HashMap<String, Object>();
+            if (settings.get(index) != null) params.putAll((Map<String, Object>) settings.get(index));
+            if (mappings.get(index) != null) params.putAll((Map<String, Object>) mappings.get(index));
+            configs.put(index,params);
+        });
+
+        FileWriter mfw = null;
+        BufferedWriter mbw = null;
+        try {
+            mfw = new FileWriter(new File(getFilePath("", true)));
+            mbw = new BufferedWriter(mfw);
+            mbw.write(FasterXmlUtils.toJson(configs));
+            mbw.newLine();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
             try {
-                mfw = new FileWriter(new File(getFilePath("", true)));
-                mbw = new BufferedWriter(mfw);
-                mbw.write(tuple.v1());
-                mbw.newLine();
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    mbw.close();
-                    mfw.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
+                mbw.close();
+                mfw.close();
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
-        } else return false;
-        logger.info("mapping end");
+        }
+
+        logger.info("config end");
         return true;
     }
 

@@ -21,6 +21,8 @@ public class EsConfig {
     private String mappingFileName;
     private String dataFileName;
     private String channel;
+    private List<String> settingsIncludedFields;
+    private String cmd;
 
     public String getClusterName() {
         return clusterName;
@@ -116,5 +118,21 @@ public class EsConfig {
 
     public void setChannel(String channel) {
         this.channel = channel;
+    }
+
+    public List<String> getSettingsIncludedFields() {
+        return settingsIncludedFields;
+    }
+
+    public void setSettingsIncludedFields(List<String> settingsIncludedFields) {
+        this.settingsIncludedFields = settingsIncludedFields;
+    }
+
+    public String getCmd() {
+        return cmd;
+    }
+
+    public void setCmd(String cmd) {
+        this.cmd = cmd;
     }
 }
