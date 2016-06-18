@@ -23,4 +23,4 @@ conf="$home/conf"
 logs="$home/logs"
 mkdir -p $conf $logs
 
-nohup java -Xmx1G -Xms1G  -cp $conf:$cp $main -p import&
+nohup java -Xmx1G -Xms1G  -cp $conf:$cp $main -p import $@ &

@@ -9,4 +9,5 @@
 config.conf
 log4j2.xml
 /temp/
-/scripts/
+export.sh
+import.sh
