@@ -16,11 +16,11 @@ function classpath() {
     done;
     echo $cp;
 }
-main=com.hansight.es.App
+main=com.hansight.es.AppDelete
 cp="$( classpath "$home/lib" )"
 echo "home is $home"
 conf="$home/conf"
 logs="$home/logs"
 mkdir -p $conf $logs
 
-nohup java -Xmx1G -Xms1G  -cp $conf:$cp $main -p import $@ &
+nohup java -Xmx1G -Xms1G  -cp $conf:$cp $main $@ &

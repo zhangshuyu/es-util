@@ -1,0 +1,3271 @@
+[
+  {
+    "description": "爬虫配置",
+    "name": "sentiment",
+    "types": [
+      {
+        "name": "country_classify",
+        "description": "国别",
+        "fields": [
+          {
+            "name": "parent",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "code",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "description": "名称"
+          }
+        ]
+      },
+      {
+        "name": "system",
+        "description": "系统配置",
+        "fields": [
+          {
+            "name": "unit",
+            "type": "string",
+            "description": "单位:小时、分钟、字符串、加密字符串"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "名称"
+          },
+          {
+            "name": "modified",
+            "type": "boolean",
+            "description": "是否可以修改"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "description": "值"
+          },
+          {
+            "name": "group",
+            "type": "string",
+            "description": "组别"
+          },
+          {
+            "name": "order",
+            "type": "long",
+            "description": "顺序"
+          }
+        ]
+      },
+      {
+        "name": "dictionary",
+        "description": "关键词字典表",
+        "fields": [
+          {
+            "name": "similarity_cn",
+            "type": "string",
+            "description": "中文相似关键词"
+          },
+          {
+            "name": "en",
+            "type": "string",
+            "description": "英文关键词"
+          },
+          {
+            "name": "similarity_en",
+            "type": "string",
+            "description": "英文相似关键词"
+          },
+          {
+            "name": "cn",
+            "type": "string",
+            "description": "中文关键词"
+          }
+        ]
+      },
+      {
+        "name": "recommend_keywords",
+        "description": "推荐关键词",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "ref_times",
+            "type": "string",
+            "description": "引用次数"
+          },
+          {
+            "name": "timestamp",
+            "type": "string",
+            "description": "时间戳"
+          }
+        ]
+      },
+      {
+        "name": "doc_classify",
+        "description": "文档分类",
+        "fields": [
+          {
+            "name": "parent",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "code",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "description": "名称"
+          }
+        ]
+      },
+      {
+        "name": "technology",
+        "description": "技术类别",
+        "fields": [
+          {
+            "name": "parent",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "code",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "description": "名称"
+          }
+        ]
+      },
+      {
+        "name": "crawl_source",
+        "description": "爬取源配置信息（爬虫管理）",
+        "fields": [
+          {
+            "name": "country",
+            "type": "string",
+            "description": "国家"
+          },
+          {
+            "name": "period",
+            "type": "long",
+            "description": ""
+          },
+          {
+            "name": "src",
+            "type": "string",
+            "description": "源地址"
+          },
+          {
+            "name": "docType",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "deNoising",
+            "type": "boolean",
+            "description": "是否去噪"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "描述信息"
+          },
+          {
+            "name": "language",
+            "type": "string",
+            "description": "语言"
+          },
+          {
+            "name": "subscription",
+            "type": "string",
+            "description": "订阅类型，微信、RSS等"
+          },
+          {
+            "name": "valid",
+            "type": "boolean",
+            "description": "是否有效"
+          },
+          {
+            "name": "depth",
+            "type": "long",
+            "description": "爬取深度"
+          },
+          {
+            "name": "kafka",
+            "type": "boolean",
+            "description": "是否立刻执行"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "sourceName",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "ts",
+            "type": "date",
+            "description": "时间戳"
+          }
+        ]
+      },
+      {
+        "name": "crawl",
+        "description": "爬取源配置（爬虫）",
+        "fields": [
+          {
+            "name": "model.latest_ts",
+            "type": "date",
+            "description": "最后访问时间"
+          },
+          {
+            "name": "model.language",
+            "type": "string",
+            "description": "语言"
+          },
+          {
+            "name": "model.keywords.rule.total_frequency",
+            "type": "long",
+            "description": "弃用"
+          },
+          {
+            "name": "model.category.technical.frequency",
+            "type": "long",
+            "description": "弃用"
+          },
+          {
+            "name": "model.keywords.keyword",
+            "type": "string",
+            "description": "弃用"
+          },
+          {
+            "name": "model.first_ts",
+            "type": "date",
+            "description": "第一次访问时间"
+          },
+          {
+            "name": "model.from.sender",
+            "type": "string",
+            "description": "邮件发件人"
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "description": "是否有效，DELETE无效，ADD有效"
+          },
+          {
+            "name": "model.type",
+            "type": "string",
+            "description": "订阅类型"
+          },
+          {
+            "name": "model.period",
+            "type": "string",
+            "description": "弃用"
+          },
+          {
+            "name": "model.account",
+            "type": "string",
+            "description": "账号"
+          },
+          {
+            "name": "model.keywords.rule.min_keyword",
+            "type": "long",
+            "description": "弃用"
+          },
+          {
+            "name": "model.depth",
+            "type": "long",
+            "description": "爬取深度"
+          },
+          {
+            "name": "model.category.document",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "model.from.category.nation",
+            "type": "string",
+            "description": "邮件国别"
+          },
+          {
+            "name": "model.source",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "model.from.language",
+            "type": "string",
+            "description": "邮件语言"
+          },
+          {
+            "name": "model.latest_visit",
+            "type": "string",
+            "description": "最近访问时间"
+          },
+          {
+            "name": "model.from.category.technical.frequency",
+            "type": "long",
+            "description": "弃用"
+          },
+          {
+            "name": "dodry",
+            "type": "boolean",
+            "description": "是否去噪"
+          },
+          {
+            "name": "model.category.nation",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "guid",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "model.minword",
+            "type": "long",
+            "description": "弃用"
+          },
+          {
+            "name": "model.from.category.document",
+            "type": "string",
+            "description": "邮件文档类别"
+          },
+          {
+            "name": "model.from.category.technical.keyword",
+            "type": "string",
+            "description": "弃用"
+          },
+          {
+            "name": "model.publicaccount",
+            "type": "string",
+            "description": "公众号"
+          },
+          {
+            "name": "model.url",
+            "type": "string",
+            "description": "URL"
+          },
+          {
+            "name": "model.category.technical.keyword",
+            "type": "string",
+            "description": "弃用"
+          },
+          {
+            "name": "ts",
+            "type": "date",
+            "description": "时间戳"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "description": "英文文档",
+    "name": "sentiment_en_2016",
+    "types": [
+      {
+        "name": "doc_article",
+        "description": "文章",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "source_journal",
+            "type": "string",
+            "description": "来源期刊"
+          },
+          {
+            "name": "periodical_number",
+            "type": "string",
+            "description": "期号"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类型标示"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "executive_summary",
+            "type": "string",
+            "description": "执行摘要"
+          },
+          {
+            "name": "company",
+            "type": "string",
+            "description": "单位"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "文章ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间"
+          },
+          {
+            "name": "reference_article",
+            "type": "string",
+            "description": "参考文献"
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "description": "作者"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文章"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "cn",
+            "type": "string",
+            "description": "CN"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "issn",
+            "type": "string",
+            "description": "ISSN"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布时间"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_patent",
+        "description": "专利",
+        "fields": [
+          {
+            "name": "application_patent_no",
+            "type": "string",
+            "description": "申请（专利）号"
+          },
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "application_person",
+            "type": "string",
+            "description": "专利人"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas地址"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档地址"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "invention_person",
+            "type": "string",
+            "description": "发明（设计）人"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文章"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "authorization_announcement_no",
+            "type": "string",
+            "description": "授权公共号"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "application_date",
+            "type": "date",
+            "description": "申请日"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布日期"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          },
+          {
+            "name": "classification_number",
+            "type": "string",
+            "description": "分类号"
+          }
+        ]
+      },
+      {
+        "name": "doc_law",
+        "description": "法律",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "date_obsolete",
+            "type": "date",
+            "description": "作废时间"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "effect_level",
+            "type": "string",
+            "description": "效力级别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "implementation_time",
+            "type": "date",
+            "description": "实施时间"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间"
+          },
+          {
+            "name": "document_number",
+            "type": "string",
+            "description": "文号"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文章"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "timeliness",
+            "type": "string",
+            "description": "时效性"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布时间"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_standard",
+        "description": "标准",
+        "fields": [
+          {
+            "name": "standard_state",
+            "type": "string",
+            "description": "标准状态"
+          },
+          {
+            "name": "preface",
+            "type": "string",
+            "description": "前言"
+          },
+          {
+            "name": "standard_year",
+            "type": "string",
+            "description": "年代号"
+          },
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "date_obsolete",
+            "type": "date",
+            "description": "作废日期"
+          },
+          {
+            "name": "standard_category",
+            "type": "string",
+            "description": "标准费率"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "formulate",
+            "type": "boolean",
+            "description": "是否定制"
+          },
+          {
+            "name": "range",
+            "type": "string",
+            "description": "范围"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "basis_indexing",
+            "type": "string",
+            "description": "标引依据"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "pages",
+            "type": "integer",
+            "description": "页数"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "alternative_standard",
+            "type": "string",
+            "description": "替代标准"
+          },
+          {
+            "name": "drafting_unit",
+            "type": "string",
+            "description": "起草单位"
+          },
+          {
+            "name": "implementation_time",
+            "type": "date",
+            "description": "实施日期"
+          },
+          {
+            "name": "term_definition",
+            "type": "string",
+            "description": "术语定义"
+          },
+          {
+            "name": "ics",
+            "type": "string",
+            "description": "ICS分类"
+          },
+          {
+            "name": "is_revise",
+            "type": "boolean",
+            "description": "是否 修订"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "standard_no",
+            "type": "string",
+            "description": "标准号"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间"
+          },
+          {
+            "name": "is_formulate",
+            "type": "boolean",
+            "description": "是否定制"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文档"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "reference_standard",
+            "type": "string",
+            "description": "引用标准"
+          },
+          {
+            "name": "revise",
+            "type": "boolean",
+            "description": "修订"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "objective_significance",
+            "type": "string",
+            "description": "目的、意义"
+          },
+          {
+            "name": "competent_unit",
+            "type": "string",
+            "description": "主管单位"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布日期"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_report",
+        "description": "研究报告",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "source_journal",
+            "type": "string",
+            "description": "来源期刊"
+          },
+          {
+            "name": "periodical_number",
+            "type": "string",
+            "description": "期号"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "executive_summary",
+            "type": "string",
+            "description": "执行摘要"
+          },
+          {
+            "name": "company",
+            "type": "string",
+            "description": "单位"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间"
+          },
+          {
+            "name": "reference_article",
+            "type": "string",
+            "description": "参考文献"
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "description": "作者"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文章"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "cn",
+            "type": "string",
+            "description": "CN"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "issn",
+            "type": "string",
+            "description": "ISSN"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布时间"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_policy",
+        "description": "政策",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "source_journal",
+            "type": "string",
+            "description": "来源期刊"
+          },
+          {
+            "name": "periodical_number",
+            "type": "string",
+            "description": "期号"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "executive_summary",
+            "type": "string",
+            "description": "执行摘要"
+          },
+          {
+            "name": "company",
+            "type": "string",
+            "description": "单位"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间戳"
+          },
+          {
+            "name": "reference_article",
+            "type": "string",
+            "description": "参考文献"
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "description": "作者"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "原文章"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "cn",
+            "type": "string",
+            "description": "CN"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "issn",
+            "type": "string",
+            "description": "ISSN"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布日期"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_rule",
+        "description": "法规",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "source_journal",
+            "type": "string",
+            "description": "来源期刊"
+          },
+          {
+            "name": "periodical_number",
+            "type": "string",
+            "description": "期号"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "executive_summary",
+            "type": "string",
+            "description": "执行摘要"
+          },
+          {
+            "name": "company",
+            "type": "string",
+            "description": "单位"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间戳"
+          },
+          {
+            "name": "reference_article",
+            "type": "string",
+            "description": "参考文献"
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "description": "作者"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "原文章"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "cn",
+            "type": "string",
+            "description": "CN"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "issn",
+            "type": "string",
+            "description": "ISSN"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布日期"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_thesis",
+        "description": "论文",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "source_journal",
+            "type": "string",
+            "description": "来源期刊"
+          },
+          {
+            "name": "periodical_number",
+            "type": "string",
+            "description": "期号"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "executive_summary",
+            "type": "string",
+            "description": "执行摘要"
+          },
+          {
+            "name": "company",
+            "type": "string",
+            "description": "单位"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间戳"
+          },
+          {
+            "name": "reference_article",
+            "type": "string",
+            "description": "参考文献"
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "description": "作者"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文档"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "cn",
+            "type": "string",
+            "description": "CN"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "issn",
+            "type": "string",
+            "description": "ISSN"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布日期"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "description": "日志",
+    "name": "sentiment_2016",
+    "types": [
+      {
+        "name": "crawler_source_status",
+        "description": "爬取源日志",
+        "fields": [
+          {
+            "name": "crawl_source_id",
+            "type": "string",
+            "description": "爬取源ID"
+          },
+          {
+            "name": "crawl_source_name",
+            "type": "string",
+            "description": "爬取源名称"
+          },
+          {
+            "name": "create_from",
+            "type": "string",
+            "description": "创建方式"
+          },
+          {
+            "name": "create_timestamp",
+            "type": "date",
+            "description": "添加入队列时间"
+          },
+          {
+            "name": "end_timestamp",
+            "type": "date",
+            "description": "结束时间"
+          },
+          {
+            "name": "cause_friendly",
+            "type": "string",
+            "description": "显示异常"
+          },
+          {
+            "name": "start_timestamp",
+            "type": "date",
+            "description": "开始时间"
+          },
+          {
+            "name": "cause",
+            "type": "string",
+            "description": "异常"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "状态日志ID"
+          },
+          {
+            "name": "crawl_source_type",
+            "type": "string",
+            "description": "爬取源类型"
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "description": "状态"
+          }
+        ]
+      },
+      {
+        "name": "analysis_result",
+        "description": "分析日志",
+        "fields": [
+          {
+            "name": "result",
+            "type": "string",
+            "description": "分析结果"
+          },
+          {
+            "name": "create_time",
+            "type": "date",
+            "description": "创建时间"
+          },
+          {
+            "name": "doc_technical",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "doc_title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "crawler_source",
+            "type": "string",
+            "description": "爬取源名称"
+          },
+          {
+            "name": "cause",
+            "type": "string",
+            "description": "原因"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "附属ID（附件时会有）"
+          },
+          {
+            "name": "doc_keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "日志ID"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          }
+        ]
+      },
+      {
+        "name": "crawler_status",
+        "description": "爬取页面日志",
+        "fields": [
+          {
+            "name": "public_ip",
+            "type": "string",
+            "description": "外网IP"
+          },
+          {
+            "name": "cause_friendly",
+            "type": "string",
+            "description": "提示原因"
+          },
+          {
+            "name": "start_timestamp",
+            "type": "date",
+            "description": "开始时间"
+          },
+          {
+            "name": "cause",
+            "type": "string",
+            "description": "原因"
+          },
+          {
+            "name": "valid_keyword",
+            "type": "string",
+            "description": "关键词（词频）"
+          },
+          {
+            "name": "bak1",
+            "type": "string",
+            "description": "备用字段（网络运营商）"
+          },
+          {
+            "name": "doc_validation",
+            "type": "string",
+            "description": "文章有效性"
+          },
+          {
+            "name": "private_ip",
+            "type": "string",
+            "description": "节点IP"
+          },
+          {
+            "name": "crawl_source_item_url",
+            "type": "string",
+            "description": "爬取文章URL"
+          },
+          {
+            "name": "end_timestamp",
+            "type": "date",
+            "description": "结束时间"
+          },
+          {
+            "name": "iscache",
+            "type": "string",
+            "description": "是否是缓存读取"
+          },
+          {
+            "name": "parent_id",
+            "type": "string",
+            "description": "爬取源日志ID"
+          },
+          {
+            "name": "step",
+            "type": "string",
+            "description": "爬取阶段"
+          },
+          {
+            "name": "crawl_source_item",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "日志ID"
+          },
+          {
+            "name": "doc_text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "crawl_source",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "description": "状态"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "description": "中文文档",
+    "name": "sentiment_cn_2016",
+    "types": [
+      {
+        "name": "doc_article",
+        "description": "文章",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "source_journal",
+            "type": "string",
+            "description": "来源期刊"
+          },
+          {
+            "name": "periodical_number",
+            "type": "string",
+            "description": "期号"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类型标示"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "executive_summary",
+            "type": "string",
+            "description": "执行摘要"
+          },
+          {
+            "name": "company",
+            "type": "string",
+            "description": "单位"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "文章ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间"
+          },
+          {
+            "name": "reference_article",
+            "type": "string",
+            "description": "参考文献"
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "description": "作者"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文章"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "cn",
+            "type": "string",
+            "description": "CN"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "issn",
+            "type": "string",
+            "description": "ISSN"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布时间"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_patent",
+        "description": "专利",
+        "fields": [
+          {
+            "name": "application_patent_no",
+            "type": "string",
+            "description": "申请（专利）号"
+          },
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "application_person",
+            "type": "string",
+            "description": "专利人"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas地址"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档地址"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "invention_person",
+            "type": "string",
+            "description": "发明（设计）人"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文章"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "authorization_announcement_no",
+            "type": "string",
+            "description": "授权公共号"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "application_date",
+            "type": "date",
+            "description": "申请日"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布日期"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          },
+          {
+            "name": "classification_number",
+            "type": "string",
+            "description": "分类号"
+          }
+        ]
+      },
+      {
+        "name": "doc_law",
+        "description": "法律",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "date_obsolete",
+            "type": "date",
+            "description": "作废时间"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "effect_level",
+            "type": "string",
+            "description": "效力级别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "implementation_time",
+            "type": "date",
+            "description": "实施时间"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间"
+          },
+          {
+            "name": "document_number",
+            "type": "string",
+            "description": "文号"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文章"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "timeliness",
+            "type": "string",
+            "description": "时效性"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布时间"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_standard",
+        "description": "标准",
+        "fields": [
+          {
+            "name": "standard_state",
+            "type": "string",
+            "description": "标准状态"
+          },
+          {
+            "name": "preface",
+            "type": "string",
+            "description": "前言"
+          },
+          {
+            "name": "standard_year",
+            "type": "string",
+            "description": "年代号"
+          },
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "date_obsolete",
+            "type": "date",
+            "description": "作废日期"
+          },
+          {
+            "name": "standard_category",
+            "type": "string",
+            "description": "标准费率"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "formulate",
+            "type": "boolean",
+            "description": "是否定制"
+          },
+          {
+            "name": "range",
+            "type": "string",
+            "description": "范围"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "basis_indexing",
+            "type": "string",
+            "description": "标引依据"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "pages",
+            "type": "integer",
+            "description": "页数"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "alternative_standard",
+            "type": "string",
+            "description": "替代标准"
+          },
+          {
+            "name": "drafting_unit",
+            "type": "string",
+            "description": "起草单位"
+          },
+          {
+            "name": "implementation_time",
+            "type": "date",
+            "description": "实施日期"
+          },
+          {
+            "name": "term_definition",
+            "type": "string",
+            "description": "术语定义"
+          },
+          {
+            "name": "ics",
+            "type": "string",
+            "description": "ICS分类"
+          },
+          {
+            "name": "is_revise",
+            "type": "boolean",
+            "description": "是否 修订"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "standard_no",
+            "type": "string",
+            "description": "标准号"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间"
+          },
+          {
+            "name": "is_formulate",
+            "type": "boolean",
+            "description": "是否定制"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文档"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "reference_standard",
+            "type": "string",
+            "description": "引用标准"
+          },
+          {
+            "name": "revise",
+            "type": "boolean",
+            "description": "修订"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "objective_significance",
+            "type": "string",
+            "description": "目的、意义"
+          },
+          {
+            "name": "competent_unit",
+            "type": "string",
+            "description": "主管单位"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布日期"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_report",
+        "description": "研究报告",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "source_journal",
+            "type": "string",
+            "description": "来源期刊"
+          },
+          {
+            "name": "periodical_number",
+            "type": "string",
+            "description": "期号"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "executive_summary",
+            "type": "string",
+            "description": "执行摘要"
+          },
+          {
+            "name": "company",
+            "type": "string",
+            "description": "单位"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间"
+          },
+          {
+            "name": "reference_article",
+            "type": "string",
+            "description": "参考文献"
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "description": "作者"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文章"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "cn",
+            "type": "string",
+            "description": "CN"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "issn",
+            "type": "string",
+            "description": "ISSN"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布时间"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_policy",
+        "description": "政策",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "source_journal",
+            "type": "string",
+            "description": "来源期刊"
+          },
+          {
+            "name": "periodical_number",
+            "type": "string",
+            "description": "期号"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "executive_summary",
+            "type": "string",
+            "description": "执行摘要"
+          },
+          {
+            "name": "company",
+            "type": "string",
+            "description": "单位"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间戳"
+          },
+          {
+            "name": "reference_article",
+            "type": "string",
+            "description": "参考文献"
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "description": "作者"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "原文章"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "cn",
+            "type": "string",
+            "description": "CN"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "issn",
+            "type": "string",
+            "description": "ISSN"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布日期"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_rule",
+        "description": "法规",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "source_journal",
+            "type": "string",
+            "description": "来源期刊"
+          },
+          {
+            "name": "periodical_number",
+            "type": "string",
+            "description": "期号"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "executive_summary",
+            "type": "string",
+            "description": "执行摘要"
+          },
+          {
+            "name": "company",
+            "type": "string",
+            "description": "单位"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间戳"
+          },
+          {
+            "name": "reference_article",
+            "type": "string",
+            "description": "参考文献"
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "description": "作者"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "原文章"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "cn",
+            "type": "string",
+            "description": "CN"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "issn",
+            "type": "string",
+            "description": "ISSN"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布日期"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      },
+      {
+        "name": "doc_thesis",
+        "description": "论文",
+        "fields": [
+          {
+            "name": "keywords",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "catalog",
+            "type": "string",
+            "description": "目录"
+          },
+          {
+            "name": "document_category",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "source_journal",
+            "type": "string",
+            "description": "来源期刊"
+          },
+          {
+            "name": "periodical_number",
+            "type": "string",
+            "description": "期号"
+          },
+          {
+            "name": "pid",
+            "type": "string",
+            "description": "父ID"
+          },
+          {
+            "name": "remark",
+            "type": "string",
+            "description": "备注"
+          },
+          {
+            "name": "doc_type",
+            "type": "string",
+            "description": "文档类别"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "description": "标题"
+          },
+          {
+            "name": "nas_path",
+            "type": "string",
+            "description": "nas路径"
+          },
+          {
+            "name": "doc_md5",
+            "type": "string",
+            "description": "文章指纹"
+          },
+          {
+            "name": "third_doc_path",
+            "type": "string",
+            "description": "第三方文档路径"
+          },
+          {
+            "name": "technical_category",
+            "type": "string",
+            "description": "技术类别"
+          },
+          {
+            "name": "executive_summary",
+            "type": "string",
+            "description": "执行摘要"
+          },
+          {
+            "name": "company",
+            "type": "string",
+            "description": "单位"
+          },
+          {
+            "name": "nation_category",
+            "type": "string",
+            "description": "国别"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "ID"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "正文"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "description": "关键词"
+          },
+          {
+            "name": "timestamp",
+            "type": "date",
+            "description": "时间戳"
+          },
+          {
+            "name": "reference_article",
+            "type": "string",
+            "description": "参考文献"
+          },
+          {
+            "name": "author",
+            "type": "string",
+            "description": "作者"
+          },
+          {
+            "name": "raw",
+            "type": "string",
+            "description": "源文档"
+          },
+          {
+            "name": "abstract",
+            "type": "string",
+            "description": "摘要"
+          },
+          {
+            "name": "cn",
+            "type": "string",
+            "description": "CN"
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "description": "版本"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "网址"
+          },
+          {
+            "name": "issn",
+            "type": "string",
+            "description": "ISSN"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "源名称"
+          },
+          {
+            "name": "publish_date",
+            "type": "date",
+            "description": "发布日期"
+          },
+          {
+            "name": "mark",
+            "type": "string",
+            "description": "文档标识，爬取的为：未处理，人工导入的为：已处理"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "description": "网址黑名单",
+    "name": "websites",
+    "types": [{
+      "name": "website",
+      "description": "网址黑名单",
+      "fields": [{
+        "name": "id",
+        "type": "string",
+        "description": "ID"
+      },
+        {
+          "name": "source",
+          "type": "string",
+          "description": "爬取源名称"
+        },
+        {
+          "name": "create_timestamp",
+          "type": "date",
+          "description": "创建时间"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "类型：生成PDF、有效性验证、黑名单"
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": "网址URL"
+        }]
+    }]
+  }
+]

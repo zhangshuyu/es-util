@@ -1,0 +1,409 @@
+[{
+  "description": "爬虫配置",
+  "name": "sentiment",
+  "types": [{
+    "name": "country_classify",
+    "description": "国别",
+    "fields": [{
+      "name": "parent",
+      "type": "string",
+      "description": "父ID"
+    },
+      {
+        "name": "code",
+        "type": "string",
+        "description": "ID"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "description": "名称"
+      }]
+  },
+    {
+      "name": "system",
+      "description": "系统配置",
+      "fields": [{
+        "name": "unit",
+        "type": "string",
+        "description": "单位:小时、分钟、字符串、加密字符串"
+      },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "名称"
+        },
+        {
+          "name": "modified",
+          "type": "boolean",
+          "description": "是否可以修改"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "ID"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "值"
+        },
+        {
+          "name": "group",
+          "type": "string",
+          "description": "组别"
+        },
+        {
+          "name": "order",
+          "type": "long",
+          "description": "顺序"
+        }]
+    },
+    {
+      "name": "dictionary",
+      "description": "关键词字典表",
+      "fields": [{
+        "name": "similarity_cn",
+        "type": "string",
+        "description": "中文相似关键词"
+      },
+        {
+          "name": "en",
+          "type": "string",
+          "description": "英文关键词"
+        },
+        {
+          "name": "similarity_en",
+          "type": "string",
+          "description": "英文相似关键词"
+        },
+        {
+          "name": "cn",
+          "type": "string",
+          "description": "中文关键词"
+        }]
+    },
+    {
+      "name": "recommend_keywords",
+      "description": "推荐关键词",
+      "fields": [{
+        "name": "id",
+        "type": "string",
+        "description": "ID"
+      },
+        {
+          "name": "keyword",
+          "type": "string",
+          "description": "关键词"
+        },
+        {
+          "name": "ref_times",
+          "type": "string",
+          "description": "引用次数"
+        },
+        {
+          "name": "timestamp",
+          "type": "string",
+          "description": "时间戳"
+        }]
+    },
+    {
+      "name": "doc_classify",
+      "description": "文档分类",
+      "fields": [{
+        "name": "parent",
+        "type": "string",
+        "description": "父ID"
+      },
+        {
+          "name": "code",
+          "type": "string",
+          "description": "ID"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "名称"
+        }]
+    },
+    {
+      "name": "technology",
+      "description": "技术类别",
+      "fields": [{
+        "name": "parent",
+        "type": "string",
+        "description": "父ID"
+      },
+        {
+          "name": "code",
+          "type": "string",
+          "description": "ID"
+        },
+        {
+          "name": "keyword",
+          "type": "string",
+          "description": "关键词"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "名称"
+        }]
+    },
+    {
+      "name": "crawl_source",
+      "description": "爬取源配置信息（爬虫管理）",
+      "fields": [{
+        "name": "country",
+        "type": "string",
+        "description": "国家"
+      },
+        {
+          "name": "period",
+          "type": "long",
+          "description": ""
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "description": "源地址"
+        },
+        {
+          "name": "docType",
+          "type": "string",
+          "description": "文档类别"
+        },
+        {
+          "name": "deNoising",
+          "type": "boolean",
+          "description": "是否去噪"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "描述信息"
+        },
+        {
+          "name": "language",
+          "type": "string",
+          "description": "语言"
+        },
+        {
+          "name": "subscription",
+          "type": "string",
+          "description": "订阅类型，微信、RSS等"
+        },
+        {
+          "name": "valid",
+          "type": "boolean",
+          "description": "是否有效"
+        },
+        {
+          "name": "depth",
+          "type": "long",
+          "description": "爬取深度"
+        },
+        {
+          "name": "kafka",
+          "type": "boolean",
+          "description": "是否立刻执行"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "ID"
+        },
+        {
+          "name": "sourceName",
+          "type": "string",
+          "description": "源名称"
+        },
+        {
+          "name": "ts",
+          "type": "date",
+          "description": "时间戳"
+        }]
+    },
+    {
+      "name": "crawl",
+      "description": "爬取源配置（爬虫）",
+      "fields": [{
+        "name": "model.latest_ts",
+        "type": "date",
+        "description": "最后访问时间"
+      },
+        {
+          "name": "model.language",
+          "type": "string",
+          "description": "语言"
+        },
+        {
+          "name": "model.keywords.rule.total_frequency",
+          "type": "long",
+          "description": "弃用"
+        },
+        {
+          "name": "model.category.technical.frequency",
+          "type": "long",
+          "description": "弃用"
+        },
+        {
+          "name": "model.keywords.keyword",
+          "type": "string",
+          "description": "弃用"
+        },
+        {
+          "name": "model.first_ts",
+          "type": "date",
+          "description": "第一次访问时间"
+        },
+        {
+          "name": "model.from.sender",
+          "type": "string",
+          "description": "邮件发件人"
+        },
+        {
+          "name": "action",
+          "type": "string",
+          "description": "是否有效，DELETE无效，ADD有效"
+        },
+        {
+          "name": "model.type",
+          "type": "string",
+          "description": "订阅类型"
+        },
+        {
+          "name": "model.period",
+          "type": "string",
+          "description": "弃用"
+        },
+        {
+          "name": "model.account",
+          "type": "string",
+          "description": "账号"
+        },
+        {
+          "name": "model.keywords.rule.min_keyword",
+          "type": "long",
+          "description": "弃用"
+        },
+        {
+          "name": "model.depth",
+          "type": "long",
+          "description": "爬取深度"
+        },
+        {
+          "name": "model.category.document",
+          "type": "string",
+          "description": "文档类别"
+        },
+        {
+          "name": "model.from.category.nation",
+          "type": "string",
+          "description": "邮件国别"
+        },
+        {
+          "name": "model.source",
+          "type": "string",
+          "description": "源名称"
+        },
+        {
+          "name": "model.from.language",
+          "type": "string",
+          "description": "邮件语言"
+        },
+        {
+          "name": "model.latest_visit",
+          "type": "string",
+          "description": "最近访问时间"
+        },
+        {
+          "name": "model.from.category.technical.frequency",
+          "type": "long",
+          "description": "弃用"
+        },
+        {
+          "name": "dodry",
+          "type": "boolean",
+          "description": "是否去噪"
+        },
+        {
+          "name": "model.category.nation",
+          "type": "string",
+          "description": "国别"
+        },
+        {
+          "name": "guid",
+          "type": "string",
+          "description": "ID"
+        },
+        {
+          "name": "model.minword",
+          "type": "long",
+          "description": "弃用"
+        },
+        {
+          "name": "model.from.category.document",
+          "type": "string",
+          "description": "邮件文档类别"
+        },
+        {
+          "name": "model.from.category.technical.keyword",
+          "type": "string",
+          "description": "弃用"
+        },
+        {
+          "name": "model.publicaccount",
+          "type": "string",
+          "description": "公众号"
+        },
+        {
+          "name": "model.url",
+          "type": "string",
+          "description": "URL"
+        },
+        {
+          "name": "model.category.technical.keyword",
+          "type": "string",
+          "description": "弃用"
+        },
+        {
+          "name": "ts",
+          "type": "date",
+          "description": "时间戳"
+        }]
+    }]
+},
+  {
+    "description": "网址黑名单",
+    "name": "websites",
+    "types": [{
+      "name": "website",
+      "description": "网址黑名单",
+      "fields": [{
+        "name": "id",
+        "type": "string",
+        "description": "ID"
+      },
+        {
+          "name": "source",
+          "type": "string",
+          "description": "爬取源名称"
+        },
+        {
+          "name": "create_timestamp",
+          "type": "date",
+          "description": "创建时间"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "类型：生成PDF、有效性验证、黑名单"
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": "网址URL"
+        }]
+    }]
+  }]

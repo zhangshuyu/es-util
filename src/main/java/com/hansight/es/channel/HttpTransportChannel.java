@@ -153,7 +153,7 @@ public class HttpTransportChannel implements TransportChannel {
             }
         });
         HttpPost post = new HttpPost(getRequestUrl(null, null) + "_bulk");
-        post.setEntity(new StringEntity(text.toString(), ContentType.DEFAULT_TEXT));
+        post.setEntity(new StringEntity(text.toString(), Charset.defaultCharset()));
         try {
             execute(post);
         } catch (Exception e) {
